@@ -16,7 +16,7 @@ export default function MainNavigationBar() {
           </a>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <a
-              href="/login"
+              href="/sign-in"
               className="text-[#2563eb]  focus:ring-3 hover:underline focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
               Sign In
