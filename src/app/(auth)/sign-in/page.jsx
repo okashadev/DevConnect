@@ -1,7 +1,34 @@
 "use client";
+import axios from "axios";
 import Image from "next/image";
+import { useState } from "react";
 
 const page = () => {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    console.log(data);
+
+    try {
+      const response = await axios.post(process.env.NEXT_PUBLIC_API_URL + "/api/sign-in", {
+        email: data.email,
+        password: data.password,
+      });
+      const res = await response.data;
+      console.log(res);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      // Handle error here
+      console.error("Error logging in:", error);
+    }
+  }
   return (
     <>
       <div className="h-screen w-full bg-gray-200 flex justify-center items-center">
@@ -21,7 +48,7 @@ const page = () => {
             Sign In
           </h1>
           <div className="border-b border-b-gray-300 shadow w-full h-2 px-4 my-3"></div>
-          <form className="w-full flex flex-col">
+          <form className="w-full flex flex-col" onSubmit={handleSubmit}>
             <div className="flex flex-col mb-4 mt-3">
               <label
                 htmlFor="email"
@@ -31,6 +58,7 @@ const page = () => {
               </label>
               <input
                 type="email"
+                onChange={(e) => setData({ ...data, email: e.target.value })}
                 id="email"
                 placeholder="Enter your email"
                 className="border w-96 shadow-lg border-gray-300 rounded-lg px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-[#1d4ed8]"
@@ -46,6 +74,7 @@ const page = () => {
               <input
                 type="password"
                 id="password"
+                onChange={(e) => setData({ ...data, password: e.target.value })}
                 placeholder="Enter your password"
                 className="border w-96 shadow-lg border-gray-300 rounded-lg px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-[#1d4ed8]"
               />
@@ -73,7 +102,8 @@ const page = () => {
             </div>
             <div className="px-5 my-4">
               <button type="submit" className="bg-[#1d4ed8] cursor-pointer text-white rounded-lg w-full pt-1 pb-2 mt-3">
-                Sign in to your account
+                {loading ? 'loading...' :
+                  'Sign in to your account'}
               </button>
             </div>
           </form>

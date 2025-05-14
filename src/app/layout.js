@@ -1,14 +1,18 @@
 import "./globals.css";
 
 export const metadata = {
-  title: 'DevConnect',
-  description: 'Developer social app',
+  title: "DevConnect",
+  description: "Developer social app",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="pt-[72px]">{children}</body>
+      <body
+        // className="pt-[72px]"
+      >
+        {children}
+      </body>
     </html>
   );
 }

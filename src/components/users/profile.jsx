@@ -7,7 +7,7 @@ import { FaLinkedin } from "react-icons/fa";
 const Profile = () => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center py-20 bg-gray-100">
+      <div className="flex flex-col  items-center justify-center py-20 bg-gray-100">
         <div className="flex w-full max-w-xl justify-between gap-5 p-5 bg-white border border-gray-200 shadow-md rounded-lg">
           <div>
             <Image
@@ -54,7 +54,9 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <div>Projects</div>
+        <div className="flex w-full max-w-xl justify-between gap-5 p-5 bg-white border border-gray-200 shadow-md rounded-lg my-10">
+          <h1 className="text-xl font-semibold">Projects</h1> 
+        </div>
         <div>
 
         </div>
