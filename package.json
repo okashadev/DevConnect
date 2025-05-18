@@ -10,15 +10,12 @@
     "postinstall": "flowbite-react patch"
   },
   "dependencies": {
-    "@prisma/extension-accelerate": "^1.3.0",
     "@swc/helpers": "^0.5.17",
     "axios": "^1.9.0",
     "bcrypt": "^6.0.0",
-    "dotenv": "^16.5.0",
-    "flowbite": "^3.1.2",
     "flowbite-react": "^0.11.7",
     "knex": "^3.1.0",
-    "next": "15.2.4",
+    "next": "15.3.2",
     "objection": "^3.1.5",
     "pg": "^8.16.0",
     "pg-query-stream": "^4.10.0",
@@ -29,12 +26,14 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^22.15.18",
-    "@types/react": "^19.1.4",
-    "@types/react-dom": "^19.1.5",
+    "@types/bcrypt": "^5.0.2",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.2.4",
+    "eslint-config-next": "15.3.2",
     "tailwindcss": "^4",
-    "typescript": "^5.8.3"
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
   }
 }

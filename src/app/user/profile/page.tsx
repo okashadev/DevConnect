@@ -1,12 +1,36 @@
 'use client'
-import React from 'react'
+import React, { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '@/components/layout/Navbar'
 import LeftSidebar from '@/components/layout/LeftSidebar'
 import RightSidebar from '@/components/layout/RightSidebar'
+import { NextPage } from 'next'
 
-const ProfileStats = ({ stats }) => {
+interface Stat {
+  label: string;
+  value: string;
+}
+
+interface ProfileStatsProps {
+  stats: Stat[];
+}
+
+interface Post {
+  id: number;
+  time: string;
+  content: string;
+  image?: string;
+  code?: string;
+  likes: number;
+  comments: number;
+}
+
+interface ProfilePostProps {
+  post: Post;
+}
+
+const ProfileStats: FC<ProfileStatsProps> = ({ stats }) => {
   return (
     <div className="flex space-x-4">
       {stats.map((stat) => (
@@ -19,7 +43,7 @@ const ProfileStats = ({ stats }) => {
   )
 }
 
-const ProfilePost = ({ post }) => {
+const ProfilePost: FC<ProfilePostProps> = ({ post }) => {
   return (
     <div className="bg-white rounded-lg shadow p-4 mb-3">
       <div className="flex justify-between items-start mb-3">
@@ -83,7 +107,7 @@ const ProfilePost = ({ post }) => {
   )
 }
 
-const ProfilePage = () => {
+const ProfilePage: NextPage = () => {
   const userStats = [
     { label: 'Posts', value: '523' },
     { label: 'Followers', value: '1.2k' },

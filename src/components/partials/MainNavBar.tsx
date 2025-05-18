@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 
-export default function MainNavigationBar() {
+const MainNavigationBar: FC = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -126,4 +126,6 @@ export default function MainNavigationBar() {
       </nav>
     </>
   );
-}
+};
+
+export default MainNavigationBar;

@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Image from 'next/image'
 
-const RightSidebar = () => {
-  const suggestions = [
+interface Suggestion {
+  name: string
+  role: string
+  avatar: string
+}
+
+const RightSidebar: FC = () => {
+  const suggestions: Suggestion[] = [
     {
       name: 'Emily Chen',
       role: 'Frontend Developer',

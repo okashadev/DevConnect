@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import { FaCode } from "react-icons/fa6";
 import { IoIosRocket } from "react-icons/io";
 import { FaUsers } from "react-icons/fa";
 
-const Features = () => {
+const Features: FC = () => {
   return (
     <>
       <div className="my-20">

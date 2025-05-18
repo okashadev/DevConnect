@@ -1,7 +1,7 @@
 import Image from "next/image";
-import React from "react";
+import React, { FC } from "react";
 
-const Testimonials = () => {
+const Testimonials: FC = () => {
   return (
     <>
       <div className="bg-gray-200 py-20">

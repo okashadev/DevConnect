@@ -1,11 +1,7 @@
-// Update with your config settings.
+// knexfile.ts
+import type { Knex } from 'knex';
 
-/**
- * @type { Object.<string, import("knex").Knex.Config> }
- */
-
-// knexfile.js
-module.exports = {
+const config: { [key: string]: Knex.Config } = {
   development: {
     client: 'pg',
     connection: {
@@ -13,7 +9,7 @@ module.exports = {
       user: process.env.DB_USER || 'postgres',
       password: process.env.DB_PASSWORD || '1234',
       database: process.env.DB_NAME || 'dev_connect',
-      port: process.env.DB_PORT || 5432,
+      port: Number(process.env.DB_PORT) || 5432,
     },
     useNullAsDefault: true,
     migrations: {
@@ -24,3 +20,5 @@ module.exports = {
     },
   },
 };
+
+export default config;

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const Navbar = () => {
+const Navbar: FC = () => {
   return (
     <nav className="bg-white shadow-md fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">

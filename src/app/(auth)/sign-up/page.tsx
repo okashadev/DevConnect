@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import Link from "next/link";
+import { NextPage } from "next";
 
-const page = () => {
+const SignUpPage: NextPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -19,7 +20,7 @@ const page = () => {
   const [loading, setLoading] = useState(false);
   const [confirmPassMatch, setConfirmPassMatch] = useState(true);
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -35,7 +36,7 @@ const page = () => {
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
   const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfirmPassword);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     const body = {
@@ -57,9 +58,9 @@ const page = () => {
       const res = await response.data;
       console.log(res);
       setLoading(false);
-    } catch (error) {
+    } catch (error: any) {
       setLoading(false);
-      console.log("Error signing up:", error.response.data);
+      console.log("Error signing up:", error.response?.data);
     }
   };
 
@@ -230,4 +231,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default SignUpPage;

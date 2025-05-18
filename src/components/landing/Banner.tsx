@@ -1,7 +1,7 @@
 import Image from "next/image";
-import React from "react";
+import React, { FC } from "react";
 
-const Banner = () => {
+const Banner: FC = () => {
   return (
     <>
       <div className="flex justify-around gap-5 bg-gray-200 text-dark py-8 px-8 w-full">

@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const LeftSidebar = () => {
-  const menuItems = [
+interface MenuItem {
+  icon: string
+  label: string
+  href: string
+}
+
+const LeftSidebar: FC = () => {
+  const menuItems: MenuItem[] = [
     { icon: '🏠', label: 'Home', href: '/feed' },
     { icon: '👤', label: 'Profile', href: '/user/profile' },
     { icon: '💬', label: 'Messages', href: '/messages' },

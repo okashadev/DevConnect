@@ -1,11 +1,20 @@
 import { NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import bcrypt from "bcrypt";
 import User from "../../../../../models/User";
 import "@/app/database";
 
-export async function POST(req) {
+interface SignUpBody {
+  name: string;
+  username: string;
+  email: string;
+  password: string;
+  phone_number?: string;
+}
+
+export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
+    const body: SignUpBody = await req.json();
     const {
       name,
       username,
@@ -71,7 +80,7 @@ export async function POST(req) {
       { status: 200 }
     );
 
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error in registration:", error);
     return NextResponse.json(
       { message: "Internal Server Error", error: error.message },

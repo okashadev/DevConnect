@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-const JoinComunity = () => {
+const JoinComunity: FC = () => {
     return (
         <>
             <div className="bg-[#2563eb] py-20">

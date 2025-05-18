@@ -3,8 +3,10 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { NextPage } from 'next'
+import React, { ChangeEvent, FormEvent } from 'react'
 
-const page = () => {
+const SignInPage: NextPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({
@@ -12,7 +14,7 @@ const page = () => {
     password: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -20,7 +22,7 @@ const page = () => {
     });
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     const body = {
@@ -39,9 +41,9 @@ const page = () => {
       const res = await response.data;
       console.log(res);
       setLoading(false);
-    } catch (error) {
+    } catch (error: any) {
       setLoading(false);
-      console.log("Error logging in:", error.response.data);
+      console.log("Error logging in:", error.response?.data);
     }
   }
   return (
@@ -142,4 +144,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default SignInPage;
