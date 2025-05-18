@@ -11,12 +11,12 @@ export default function Home() {
 
   return (
     <>
-      <div>
+      <div className="pt-[73px]">
         <MainNavigationBar />
         <Banner />
         <Features />
         <Testimonials />
-        <JoinComunity /> 
+        <JoinComunity />
         <Footer />
       </div>
     </>
